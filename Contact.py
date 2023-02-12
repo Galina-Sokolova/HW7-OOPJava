@@ -1,19 +1,20 @@
-from Phonebook import *
 
-   
-pb = []  
-pb.append(Phonebook("Иванов Иван Иванович", "88076455535", "Москва"))
-pb.append(Phonebook("Васнецов Алексей Петрович", "80879792321", "Пермь"))
-pb.append(Phonebook("Волкова Анна Александровна", "89098767765", "Астрахань"))
-        
-        
+class Contact:   
+    def __init__(self, name, phone, city):
+        self.Name = name
+        self.Phone = phone
+        self.City = city
+
+    def __str__(self):
+        return f"Имя: {self.Name}  Телефон: {self.Phone}  Город: {self.City}"
+
+    def get_name(self):
+        return self.Name
     
-def show_addressbook():
-    for i in pb:
-        print (i.get_name(), i.get_phone(), i.get_city())
+    def get_phone(self):
+        return self.Phone 
+    
+    def get_city(self):
+        return self.City    
 
-def add_Contact():
-    n = input("Input name:  ")
-    p = input("Input phone:  ")
-    c = input("Input city:  ")
-    pb.append(Phonebook(n, p, c))        
+            

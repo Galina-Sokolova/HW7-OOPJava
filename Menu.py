@@ -3,8 +3,6 @@ from FileManager import FileManager
 from Phonebook import *
 
 class Menu:
-    run = FileManager() 
-    
     def main_menu(): 
         print("1 - Отобразить справочник")
         print("2 - Считать данные из файла")
@@ -13,29 +11,17 @@ class Menu:
         print("..........................")
         print("Выберите действие: ")
         choice = int(input())
-        
-        # if choice == 1:  
-        #     show_addressbook()  
-        
-        # elif inp == 2:  
-        #     FileManager.fileExport(pb)  
-        #     print ("Export finish")
-        
-        # elif inp == 3:
-        #     FileManager.fileImport(pb)
-        #     print ("Import finish")
-
+        phones = Phonebook()
+        phones.addressbook()
         match choice:
             case 1:
-                show_addressbook()
-
-
+                phones.show_addressbook()
             case 2:
-                FileManager.fileExport(pb)
-                print("Export finish")
+                FileManager.fileImport(phones.pb)
             case 3:
-                FileManager.fileImport(pb)
+                FileManager.fileExport(phones.pb)
+                print("Export finish")
             case 4:
-                add_Contact()
-                show_addressbook()
+                phones.add_Contact()
+                phones.show_addressbook()
         return None    
